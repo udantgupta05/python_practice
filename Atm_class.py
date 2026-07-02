@@ -3,10 +3,23 @@ class Atm:
     self.__pin = ""
     self.__balance = 0
 
-    self.menu()
+    self.__menu()
 
 
-  def menu(self):
+  def get_pin(self):
+      return self.__pin
+
+
+  def set_pin(self, new_pin):
+      if type(new_pin) == int and 1000 <= new_pin <= 9999:
+          self.__pin = new_pin
+          print("PIN Changed")
+
+      else:
+          print("Not Allowed")
+
+
+  def __menu(self):
     print("Welcome User to the ATM Machine, how would you like to proceed?")
     while True:
         user_input = input("""
@@ -105,8 +118,3 @@ class Atm:
     
       else: 
           print("Invalid PIN")
-
-
-
-
-          
